@@ -51,7 +51,7 @@ Route::group(['middleware'=>'check-permission:customer'], function () {
 Route::get('/customer/wallets/{type?}', 'WalletsController@show');
 Route::get('/customer/profile', 'CustomerController@show');
 Route::get('/customer/cards', 'CustomerController@showcards');
-Route::get('/transactions/recentTransactions', 'TransactionsController@index');
+Route::get('/customer/transactions', 'TransactionsController@index');
 
     //POST REQUEST
     Route::post('/customer/sendmoney', 'BlockchainController@sendbitcoin');
