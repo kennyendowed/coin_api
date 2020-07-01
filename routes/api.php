@@ -47,22 +47,12 @@ Route::get('/Authorization/{id?}', 'AuthController@Authorization')->name('Author
 Route::group(['middleware' => 'jwt.verify'], function () {
 Route::group(['middleware'=>'check-permission:customer'], function () {
 
-
-Route::get('/customer/wallets/{type?}', 'WalletsController@show');
 Route::get('/customer/profile', 'CustomerController@show');
-Route::get('/customer/cards', 'CustomerController@showcards');
 Route::get('/customer/transactions', 'TransactionsController@index');
 
     //POST REQUEST
     Route::post('/customer/sendmoney', 'BlockchainController@sendbitcoin');
-
-
-
     Route::patch('/customer/profile', 'CustomerController@update');
-    Route::post('/customer/cards/add/{customerId?}', 'CustomerController@store');
-    Route::patch('/customer/authorization', 'CustomerController@authupdate');
-    Route::post('/customer/authorization', 'CustomerController@createt');
-    Route::delete('/articles/{article}', 'ArticleController@delete');
 
 
 
